@@ -1,4 +1,4 @@
-# cardpayment
+# Card Payment
 
 A new Flutter application.
 
