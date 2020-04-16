@@ -2,6 +2,10 @@ import 'package:flutter/material.dart';
 import 'dart:math';
 
 class CardBackView extends StatelessWidget {
+  final String cvvNumber;
+
+  const CardBackView({Key key, this.cvvNumber}) : super(key : key);
+
   @override
   Widget build(BuildContext context) {
     return Transform(
@@ -46,7 +50,7 @@ class CardBackView extends StatelessWidget {
                           color: Colors.grey
                         ),
                         SizedBox(width: 32),
-                        Text('339', style: TextStyle(fontStyle: FontStyle.italic, fontWeight: FontWeight.bold, fontSize: 18))
+                        Text(cvvNumber, style: TextStyle(fontStyle: FontStyle.italic, fontWeight: FontWeight.bold, fontSize: 18))
                       ]
                     ),
                     SizedBox(height: 8,),

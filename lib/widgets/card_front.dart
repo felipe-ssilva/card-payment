@@ -1,6 +1,16 @@
 import 'package:flutter/material.dart';
 
 class CardFrontView extends StatelessWidget {
+  final String cardNumber;
+
+  CardFrontView({Key key, this.cardNumber}) : super(key: key)
+  {
+    _formattedCardNumber = this.cardNumber.padRight(16,'*');
+    _formattedCardNumber = _formattedCardNumber.replaceAllMapped(RegExp(r".{4}"), (match)=> "${match.group(0)}");
+  }
+
+  String _formattedCardNumber;
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -16,6 +26,7 @@ class CardFrontView extends StatelessWidget {
           padding: const EdgeInsets.all(32),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               Align(
                 alignment: Alignment.topRight,
@@ -26,7 +37,8 @@ class CardFrontView extends StatelessWidget {
               ),
               SizedBox(height: 25),
               Text(
-                '1234 5678 9012 3456',
+                _formattedCardNumber,
+                textAlign: TextAlign.start,
                 style: TextStyle(
                   fontSize: 28,
                   letterSpacing: 2,
